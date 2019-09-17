@@ -40,18 +40,7 @@ const Movie = props => {
           Metascore: <strong>{metascore}</strong>
         </div>
         <h3>Actors</h3>
-
-        {/* <div>
-          {this.state.stars.map(x => (
-            <div></div>
-          ))}
-        </div> */}
-
-        {/* {stars.map(star => (
-          <div className="movie-star">
-            {star}
-          </div>
-        ))} */}
+        <div className="movie-star">{stars}</div>
       </div>
       <div className="save-button">Save</div>
     </div>
