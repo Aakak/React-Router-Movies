@@ -1,25 +1,22 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const Movie = (props) => {
+const Movie = props => {
   const [movie, setMovie] = useState({});
- 
+
   useEffect(() => {
-    const id = 1;
-    // change ^^^ that line and grab the id from the URL
-    // You will NEED to add a dependency array to this effect hook
+    const id = props.match.params.id;
+    axios
+      .get(`http://localhost:5000/api/movies/${id}`)
+      .then(response => {
+        console.log(response.data);
+        setMovie(response.data);
+      })
+      .catch(error => {
+        console.error(error);
+      });
+  }, []);
 
-       axios
-        .get(`http://localhost:5000/api/movies/${id}`)
-        .then(response => {
-          setMovie(response.data);
-        })
-        .catch(error => {
-          console.error(error);
-        });
-
-  },[]);
-  
   // Uncomment this only when you have moved on to the stretch goals
   // const saveMovie = () => {
   //   const addToSavedList = props.addToSavedList;
@@ -31,6 +28,7 @@ const Movie = (props) => {
   }
 
   const { title, director, metascore, stars } = movie;
+
   return (
     <div className="save-wrapper">
       <div className="movie-card">
@@ -43,15 +41,21 @@ const Movie = (props) => {
         </div>
         <h3>Actors</h3>
 
-        {stars.map(star => (
-          <div key={star} className="movie-star">
+        {/* <div>
+          {this.state.stars.map(x => (
+            <div></div>
+          ))}
+        </div> */}
+
+        {/* {stars.map(star => (
+          <div className="movie-star">
             {star}
           </div>
-        ))}
+        ))} */}
       </div>
       <div className="save-button">Save</div>
     </div>
   );
-}
+};
 
 export default Movie;
