@@ -36,7 +36,6 @@ Topics:
 * You should now be able to navigate back and forth between the individual movies and the home screen.
 
 
-
 ## Stretch Goals.
 
 If you have completed Parts 1 & 2 feel free to move on to these stretch goals.
@@ -54,3 +53,5 @@ You will notice there is a 'Saved Movies' component that we are not currently us
 You will need to uncomment lines 25-28 in `Movie.js` to complete this. Your list of saved movies should be links to the movie itself. Study and understand what the `saveMovie` function is doing.
 
 ### Turn your Saved Movie `Link`s into `NavLink`s.
+
+

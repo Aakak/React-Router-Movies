@@ -17,15 +17,27 @@ const Movie = props => {
       });
   }, []);
 
+
+
+  componentProps(Props){
+    if(this.props.match.params.id !== Props.match.params.id)
+    this.fetchMovie(Props.match.params.id);
+  }
+
+
   // Uncomment this only when you have moved on to the stretch goals
-  // const saveMovie = () => {
-  //   const addToSavedList = props.addToSavedList;
-  //   addToSavedList(movie)
-  // }
+  const saveMovie = () => {
+    const addToSavedList = props.addToSavedList;
+    addToSavedList(movie);
+  };
+
+
 
   if (!movie) {
     return <div>Loading movie information...</div>;
   }
+
+
 
   const { title, director, metascore, stars } = movie;
 
@@ -42,7 +54,9 @@ const Movie = props => {
         <h3>Actors</h3>
         <div className="movie-star">{stars}</div>
       </div>
-      <div className="save-button">Save</div>
+      <div onClick={this.saveMovie} className="save-button">
+        Save
+      </div>
     </div>
   );
 };
