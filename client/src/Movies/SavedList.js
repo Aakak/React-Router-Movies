@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Route, Link } from "react-router-dom";
-import Movie from "./Movie";
 import MovieCard from "./MovieCard";
 
 const SavedList = props => (
